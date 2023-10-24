@@ -1,3 +1,23 @@
+# This workflow will run the CodeQL suite of security and quality scans on your repository
+# leveraging langages specified by the user and create associated scanning results in Jira Issues
+# For a full readout of langauges supported by CodeQL
+# refer to https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql
+#
+# To configure this workflow:
+#
+# 1. Specify Scanning languages
+# CodeQL requires an input list of languages to be specified
+# Replace 'csharp' in the language matrix to select the languages in your code base
+#
+# 2. Provide Jira Context
+# In your repository's actions secrets, provide the base url (JIRA_BASE_URL), 
+# user email (JIRA_USER_EMAIL), and api token (JIRA_API_TOKEN) associated with your Jira instance. 
+#
+# 3. Identify Jira Project
+# Provide the abbreviation of the desired Jira project (JIRA_PROJECT_NAME)
+
+
+
 name: CodeQL Scan with Jira Sync
 on: push
 
@@ -8,7 +28,7 @@ jobs:
 
     strategy:
       matrix:
-        language: [ 'csharp' ]
+        language: [ 'YOUR-LANGUAGES-HERE' ]
 
     name: Testing Composite Actions Workflow
     steps:
@@ -18,4 +38,4 @@ jobs:
           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-          JIRA_PROJECT_NAME: 'AT'
+          JIRA_PROJECT_NAME: 'YOUR-PROJECT-NAME-HERE'
