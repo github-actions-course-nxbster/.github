@@ -1,0 +1,10 @@
+{
+    "name": "CodeQL Scanning with Jira Issues Integration",
+    "description": "Starter workflow ",
+    "iconName": "jira-logo",
+    "categories": [
+        "code-quality",
+        "code-review",
+        "Automation"
+    ]
+}

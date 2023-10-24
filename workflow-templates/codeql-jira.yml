@@ -1,0 +1,21 @@
+name: CodeQL Scan with Jira Sync
+on: push
+
+jobs:
+
+  test-composite-action:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        language: [ 'csharp' ]
+
+    name: Testing Composite Actions Workflow
+    steps:
+      - uses: github-actions-course-nxbster/codeql-action@main
+        with:
+          language: ${{ matrix.language }}
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_PROJECT_NAME: 'AT'
